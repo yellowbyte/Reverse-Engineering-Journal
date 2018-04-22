@@ -35,7 +35,7 @@
 * Intel x86 and x86-64 use little-endian format. It is a format where multi-bytes datatype (e.g. integer) has its least significant byte stored in the lower address of main memory 
 * Value stored in RAM is in little-endian but when moved into a register will be in big-endian. This is why even though bytes representing an integer is flipped in memory, it will be in its original form when moved into a register
 <div align='center'> 
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Miscellaneous/endianness.png"> 
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Miscellaneous/endianness.png" width="50%" height="50%"> 
 <p align='center'><sub><strong>integer 599 (0x257) in memory vs in register</strong></sub></p>
 </div>
 

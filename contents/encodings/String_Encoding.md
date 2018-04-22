@@ -7,6 +7,10 @@
   * [ASCII Table](http://www.asciitable.com/)
   * Out of the 128 characters defined in ASCII, only 95 of them are human-readable
   * ASCII used 7 bits only, but the extra bit is still not enough to encode all the other languages
+* __Line Terminator__: encoded character sequence that represents end of line
+  * On DOS/Windows it's "\r\n" whereas on Linux it's "\n"
+  * "\r" is carriage return (0x0D) 
+  * "\n" is line feed or new line (0x0A)
 
 ---
 #### *<p align='center'> Unicode </p>*

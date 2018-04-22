@@ -1,7 +1,7 @@
 ## *<p align='center'><a href="/contents/encodings/encodings.md"><-</a>  .general  <a href="/contents/tools/tools.md">-></a></p>*
 
 <div align='center'> 
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Introduction.PNG"> 
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/introduction.png" width="80%" height="80%"> 
 <p align='center'><sub><strong><a href="https://gist.github.com/yellowbyte/e5366b5f28be7a0a33749fe664cc95cb">semantic insight vs implementation detail</a></strong></sub></p>
 </div>
 

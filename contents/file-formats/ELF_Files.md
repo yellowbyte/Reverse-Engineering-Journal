@@ -54,7 +54,14 @@
 * __nm command__ to list all symbols in the binary from .symtab
 * Stripped binary == no .symtab symbol table
 * .dynsym symbol table cannot be stripped since it is needed for runtime, so imported library functions' symbols remain in a stripped binary. But if a binary is compiled only with statically-linked libraries, it will contain no symbol table at all if stripped
-* With non-stripped, gdb can identify local function names and knows the bounds of all functions so we can do this: disas &lt;function name&gt;
+* The address and size of all local functions can be identified in .symtab
+
+<div align='center'> 
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/func_and_size.png" width="70%" height="70%"> 
+<p align='center'><sub><strong>running `readelf -s &lt;binary&gt; | grep -e "main" -e "Num:"` shows that function main starts at 0x400526 with the size of 42 bytes</strong></sub></p>
+</div>
+
+* With non-stripped binary, gdb can identify local function names and knows their bounds because of .symtab so we can do this: __disas &lt;function name&gt;__
 * With stripped binary, gdb can’t even identify main. We can still try to identify main from the entry point using the command: __info file__. Also, can’t use disas since gdb does not know the bounds of a functions so it does not know which address range should be disassembled. Solution: use examine(x) command on address pointed by program counter: __x/14i $pc__
 
 ---
