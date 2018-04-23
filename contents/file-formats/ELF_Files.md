@@ -3,16 +3,16 @@
 ---
 #### *<p align='center'> Overview </p>*
 ---
-<div align='center'> 
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/elf_file_format.png" height="400"> 
+<div align='center'>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/elf_file_format.png" height="400">
 <p align='center'><sub><strong>ELF file format overview</strong></sub></p>
 </div>
 
 ---
 #### *<p align='center'> Linking VS Execution </p>*
 ---
-<div align='center'> 
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/loading_elf_file.png" height="400"> 
+<div align='center'>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/loading_elf_file.png" height="400">
 <p align='center'><sub><strong>linking vs execution view</strong></sub></p>
 </div>
 
@@ -33,7 +33,7 @@
 * __Notable Sections:__
   * __.got (Global Offset Table)__: a table of addresses located in the data section. It allows PIC (Position Independent) code to reference data that were not available during compilation (ex: extern "var"). That data will have a section in .got, which will then be filled in later by the dynamic linker
   * __.plt (Procedure Linkage Table)__: contains within the text segment, consisting of external function entries. Each plt entry has a correcponding entry in .got.plt which contains the actual offset to the function
-    * plt entry consists of: 
+    * plt entry consists of:
       * A jump to an address specified in GOT
       * argument to tell the resolver which function to resolve (only reach there during function's first invocation)
       * call the resolver (resides at PLT entry 0)
@@ -56,8 +56,8 @@
 * .dynsym symbol table cannot be stripped since it is needed for runtime, so imported library functions' symbols remain in a stripped binary. But if a binary is compiled only with statically-linked libraries, it will contain no symbol table at all if stripped
 * The address and size of all local functions can be identified in .symtab
 
-<div align='center'> 
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/func_and_size.png" width="70%" height="70%"> 
+<div align='center'>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/file-formats/ELF_Files/func_and_size.png" width="70%" height="70%">
 <p align='center'><sub><strong>running `readelf -s &lt;binary&gt; | grep -e "main" -e "Num:"` shows that function main starts at 0x400526 with the size of 42 bytes</strong></sub></p>
 </div>
 

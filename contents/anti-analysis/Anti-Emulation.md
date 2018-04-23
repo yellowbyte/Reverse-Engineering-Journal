@@ -4,7 +4,7 @@
 #### *<p align='center'> CPU Inconsistencies Detection </p>*
 ---
 * Try executing privileged instructions in user-mode. If it succeeds, then the program is under emulation
-  * WRMSR is a privileged instruction that is used to write values to a MSR register. Values in MSR registers can be critical. For example, the SYSCALL instruction invokes the system-call handler by loading RIP from the IA32_LSTAR MSR register. As a result, user-mode application should not be able to access it  
+  * WRMSR is a privileged instruction that is used to write values to a MSR register. Values in MSR registers can be critical. For example, the SYSCALL instruction invokes the system-call handler by loading RIP from the IA32_LSTAR MSR register. As a result, user-mode application should not be able to access it
 * __Detection Through System Calls__: invoke various uncommon system calls and check if it contains expected value. Since if there are OS features not properly implemented, it means that the process is running under emulation
 
 ---

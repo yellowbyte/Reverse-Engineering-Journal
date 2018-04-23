@@ -4,16 +4,16 @@
 #### *<p align='center'> Thiscall </p>*
 ---
 * __Thiscall__: C++'s calling convention
-* On Microsoft Visual C++ compiled binary, "this" pointer is stored in ecx. Sometimes esi 
+* On Microsoft Visual C++ compiled binary, "this" pointer is stored in ecx. Sometimes esi
 * On g++ compiled binary, "this" pointer is passed in as the first parameter to a member function
-* "this" pointer points to a class object 
+* "this" pointer points to a class object
 
 ---
 #### *<p align='center'> How An Object Is Represented </p>*
 ---
 * __How An Object Is Represented__: class object in assembly only contains the vfptr (pointer to virtual functions table) and variables. Non-virtual member functions are not part of it
 * Child class automatically has all virtual functions and variables from parent class
-* If the class contains virtual functions, a call to the constructor will be made to fill in the vfptr to point to vtable during object creation. If the class inherit from another class, within the constructor there will have a call to the constructor of the parent class  
+* If the class contains virtual functions, a call to the constructor will be made to fill in the vfptr to point to vtable during object creation. If the class inherit from another class, within the constructor there will have a call to the constructor of the parent class
 * vtable of a class is determined during compile-time (resides in .rdata)
 * Compiler places a pointer immediately prior to a class' vtable. That pointer points to a structure that contains information on the name of class that owns the vtable
 
