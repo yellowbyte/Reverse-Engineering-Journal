@@ -48,8 +48,8 @@
 ---
 * Debugger reads and stores an instruction's first byte and then overwrites that first byte with 0xCC (INT3) to set a breakpoint at that instruction. When CPU hits the breakpoint (0xCC), OS kernel sends SIGTRAP signal to process, process execution is paused by the debugger, and debugger's internal lookup occurs to flip the original byte back
 <div align='center'>
-<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Miscellaneous/soft_bp.png">
-<p align='center'><sub><strong>software breakpoint</strong></sub></p>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Miscellaneous/software_bp.png">
+<p align='center'><sub><strong>debugger reads and stores 0x31 before overwriting it with 0xCC</strong></sub></p>
 </div>
 
 ---
