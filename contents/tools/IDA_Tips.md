@@ -18,18 +18,45 @@
 </div>
 
 ---
-#### *<p align='center'> Import Address Table (IAT) </p>*
+#### *<p align='center'> Functions Window </p>*
 ---
-* IAT shows you all the dynamically linked libraries' functions that the binary uses. IAT is important for a reverser to understand how the binary will be interacting with the OS. To hide API calls from displaying in the IAT, a programmer can dynamically resolve them
-* __How To Find Dynamically Resolved APIs__: get the binary's function trace (e.g. hybrid-analysis, ltrace). If any of the APIs in the function trace is not in the IAT, then that API is dynamically resolved
-* __How To Find Where A Dynamically Resolved API Is Called__: in IDA's debugger view, the Module Windows allows you to place a breakpoint on any function in a loaded dynamically linked library. Use it to place a breakpoint on a dynamically resolved API and once execution breaks there, step back through the call stack to find where it's called from in user code
+* Functions Window shows you all the API functions that the binary uses
+  * API functions increase the disassembly's glance value and provide the reverser with more context to figure out what the surrounding code is doing
+    * __Glance value__: being able to quickly look over the code and have a general idea of what it is doing
+<div align='center'>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/default_functions_window.png">
+<p align='center'><sub><strong>Functions Window example</strong></sub></p>
+</div>
+
+* By default, Functions Windows will only show the "Function name" column but you can expand it to see the other columns
+  * __Segment__: segment that contains the function
+  * __Start__: offset of the function within the segment
+  * __Length__: function length in bytes
+  * __Locals__: size (in bytes) of local variables + saved registers
+  * __Arguments__: size (in bytes) of arguments passed to the function
+  * __R__: function returns to the caller
+  * __F__: far function
+  * __L__: library function
+  * __S__: static function
+  * __B__: BP based frame. IDA will automatically convert all frame pointer [BP+xxx] operands to stack variables
+  * __T__: function has type information
+  * __=__: Frame pointer is equal to the initial stack pointer. In this case the frame pointer points to the bottom of the frame
+    * Source: [idadoc](https://www.hex-rays.com/products/ida/support/idadoc/586.shtml)
+<div align='center'>
+<img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/expanded_functions_window.png">
+<p align='center'><sub><strong>expanded Functions Window</strong></sub></p>
+</div>
+
+* To hide API calls from displaying in the Functions Window, a programmer can dynamically resolve API functions
+  * __How To Find Dynamically Resolved APIs__: get the binary's function trace (e.g. hybrid-analysis, ltrace). If any of the APIs in the function trace is not in the Functions Window, then that API is dynamically resolved
+  * __How To Find Where A Dynamically Resolved API Is Called__: in IDA's debugger view, the Module Windows allows you to place a breakpoint on any function in a loaded dynamically linked library. Use it to place a breakpoint on a dynamically resolved API and once execution breaks there, step back through the call stack to find where it's called from in user code
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/source.png" width="500" height="430">
 <p align='center'><sub><strong><a href="https://gist.github.com/yellowbyte/ec470d75ba7c14ebefed271c6fe58e9e">source code</a> showing how `puts` is dynamically resolved. String reference to `puts` is also encoded</strong></sub></p>
 </div>
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/iat.png" width="470" height="370">
-<p align='center'><sub><strong>even though `puts` is a function from a dynamically linked library it does not show up in IDA's IAT</strong></sub></p>
+<p align='center'><sub><strong>even though `puts` is a function from a dynamically linked library it does not show up in IDA's Functions Window</strong></sub></p>
 </div>
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/strings.png" width="500">

@@ -19,7 +19,7 @@ __Be Cautious...__
 ### *<p align='center'> section overview </p>*
 ---
 * [IDA Tips](IDA_Tips.md)
-  * [Addresses Shown In IDA](IDA_Tips.md#-addresses-shown-in-ida-)
+  * [Functions Window](IDA_Tips.md#-functions-window-)
   * [Import Address Table (IAT)](IDA_Tips.md#-import-address-table-iat-)
   * [Graphs](IDA_Tips.md#-graphs-)
   * [Useful Shortcuts](IDA_Tips.md#-useful-shortcuts-)
