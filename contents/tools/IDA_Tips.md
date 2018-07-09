@@ -20,8 +20,8 @@
 ---
 #### *<p align='center'> Functions Window </p>*
 ---
-* Functions Window shows you all the API functions that the binary uses
-  * API functions increase the disassembly's glance value and provide the reverser with more context to figure out what the surrounding code is doing
+* Functions Window displays all the functions the binary uses: local functions, linked functions (e.g. [crt0](https://en.wikipedia.org/wiki/Crt0)), and dynamically-linked functions.
+  * dynamically-linked functions increase the disassembly's glance value and provide the reverser with more context to figure out what the surrounding code is doing since their original names can't be stripped away
     * __Glance value__: being able to quickly look over the code and have a general idea of what it is doing
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/default_functions_window.png">
@@ -47,7 +47,7 @@
 <p align='center'><sub><strong>expanded Functions Window</strong></sub></p>
 </div>
 
-* To hide API calls from displaying in the Functions Window, a programmer can dynamically resolve API functions
+* To hide API (dynamically-linked functions) calls from displaying in the Functions Window, a programmer can dynamically resolve API functions
   * __How To Find Dynamically Resolved APIs__: get the binary's function trace (e.g. hybrid-analysis, ltrace). If any of the APIs in the function trace is not in the Functions Window, then that API is dynamically resolved
   * __How To Find Where A Dynamically Resolved API Is Called__: in IDA's debugger view, the Module Windows allows you to place a breakpoint on any function in a loaded dynamically linked library. Use it to place a breakpoint on a dynamically resolved API and once execution breaks there, step back through the call stack to find where it's called from in user code
 <div align='center'>

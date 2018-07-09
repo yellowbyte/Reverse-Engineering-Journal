@@ -24,8 +24,8 @@ __Why Reverse Engineering?__
 ---
 ### *<p align='center'> further readings </p>*
 ---
-* [Malware Unicorn's Reverse Engineering Malware 101](https://securedorg.github.io/RE101/): a well put together overview on malware analysis
-* [XOR06](https://xor06.wordpress.com/tutorials/): writer of [The Legend Of Random](http://octopuslabs.io/legend/blog/sample-page.html)'s new software cracking blog
+* [Malware Unicorn's Reverse Engineering Malware 101](https://securedorg.github.io/RE101/): a nice overview on malware analysis
+* [XOR06](https://xor06.wordpress.com/tutorials/): author of [The Legend Of Random](http://octopuslabs.io/legend/blog/sample-page.html)'s new software cracking blog
 * [Reverse Engineering for Beginners](https://beginners.re/): a free and comprehensive book on reverse engineering
 
 #
