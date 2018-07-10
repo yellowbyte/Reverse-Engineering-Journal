@@ -22,6 +22,7 @@ __Be Cautious...__
   * [Addresses Shown In IDA](IDA_Tips.md#-addresses-shown-in-ida-)
   * [Functions Window](IDA_Tips.md#-functions-window-)
   * [Graphs](IDA_Tips.md#-graphs-)
+  * [Keeping Track of Manual Analysis](IDA_Tips.md#-keeping-track-of-manual-analysis-)
   * [Useful Shortcuts](IDA_Tips.md#-useful-shortcuts-)
 * [GDB Tips](GDB_Tips.md)
   * [Changing Default Settings](GDB_Tips.md#-changing-default-settings-)

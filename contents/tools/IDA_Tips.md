@@ -101,8 +101,24 @@
 </div>
 
 ---
+#### *<p align='center'> Keeping Track of Manual Analysis </p>*
+---
+* __Marker__: centralized comments page for the binary under analysis
+  * __Alt+M__: mark current cursor location with comments
+  * __Ctrl+M__: brings up a window showing all marked positions with their corresponding comments
+* __Notepad__: a blank window for jogging down any notes
+  * To open Notepad: __View->Open subviews->Notepad__
+* __Regular Comment__: makes a comment at current cursor location
+* __Repeatable Comment__: same as regular comment except every cross-reference to commented location will also have the same comment
+* __Additional Comment__: regular and repeatable comments will appear to the right of the instruction. You can also insert comments before (__Ins__) or after (__Shift+Ins__) the instruction
+
+---
 #### *<p align='center'> Useful Shortcuts </p>*
 ---
+* __Ctrl+L__: jump to location by name
+* __Ctrl+P__: jump to location by function name
+* __Ctrl+X__: jump to cross reference
+* __ESC__: jump to last location
 * __u__ to undefine region of bytes starting at cursor
 * __d__ to transform region of bytes starting at cursor to data
 * __c__ to transform region of bytes starting at cursor to code
