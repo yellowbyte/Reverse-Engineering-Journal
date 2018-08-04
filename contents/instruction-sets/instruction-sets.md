@@ -35,6 +35,7 @@ __CISC vs RISC__
 ### *<p align='center'> further readings </p>*
 ---
 * [Azeria Labs](https://azeria-labs.com/): from ARM assembly to ARM exploitation. If you want to learn about ARM, this is it
+* [xchg rax, rax](https://www.xorpd.net/pages/xchg_rax/snip_00.html): x86-64 assembly riddles
 
 #
 <strong><p align='center'><a href="/contents/tools/tools.md">.tools</a> <- <a href="/README.md#-reverse-engineering-reference-manual-beta-">RERM</a> -> <a href="/contents/languages/languages.md">.languages</a></p></strong>
