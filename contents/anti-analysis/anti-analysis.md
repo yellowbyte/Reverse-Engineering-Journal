@@ -40,6 +40,7 @@ __Not So Fast...__
 ---
 * [The "Ultimate" Anti-Debugging Reference](http://anti-reversing.com/Downloads/Anti-Reversing/The_Ultimate_Anti-Reversing_Reference.pdf): a comprehensive Windows anti-debugging guide by Peter Ferrie
 * [Al-Khaser](https://github.com/LordNoteworthy/al-khaser): a sample application that performs different types of common anti-analysis tricks
+* [Analysis of Anti-Analysis](https://github.com/yellowbyte/analysis-of-anti-analysis): my blog on anything related to anti-reverse engineering
 
 #
 <strong><p align='center'><a href="/contents/file-formats/file-formats.md">.file-formats</a> <- <a href="/README.md#-reverse-engineering-reference-manual-beta-">RERM</a> -> <a href="/contents/encodings/encodings.md">.encodings</a></p></strong>
