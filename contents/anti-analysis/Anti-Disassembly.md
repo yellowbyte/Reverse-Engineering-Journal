@@ -5,8 +5,9 @@
 ---
 * __Linear Sweep__: disassembles one instruction at a time linearly
   * __Problem__: code section of nearly all binaries will also contain data that isn’t instructions
+    * __Example__: jump table for switch statement, padding bytes between functions
 * __Recursive Descent__: disassembles program based on control flow
-  * __Example Implementation__: for conditional branch, it will process false branch first and note to disassemble true branch later. For unconditional branch, it will add destination to the end of list of places to disassemble in future and then disassemble from that list. For call instruction, it will disassemble the bytes after the call first and then the called location. If there is conflict between the true and false branch when disassembling, it will trust the one it disassembles first
+  * __Example Implementation__: for conditional branch, process false branch first and note to disassemble true branch later. For unconditional branch, add destination to the end of list of places to disassemble in future and then disassemble from that list. For call instruction, disassemble the bytes after the call first and then the called location. If there is conflict between the true and false branch when disassembling, trust the one disassembled first
 * [Binary Ninja disassembler uses both linear sweep and recursive descent to identify functions](https://binary.ninja/2017/11/06/architecture-agnostic-function-detection-in-binaries.html)
 
 ---

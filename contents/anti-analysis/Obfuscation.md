@@ -24,7 +24,10 @@
 ---
 * A technique to prevent correct disassembly by displaying opcodes that need to be re-interpreted/altered during runtime before being executed by the CPU
 * __Self-Modifying Code__: disassembly shows the encoded/encrypted opcodes. During runtime, the encoded/encrypted opcodes are decoded/decrypted, revealing the opcodes that will actually be executed. Encoding/encrypting portions of a program can hinder static analysis because disassembly is not possible (if it is, it will display the wrong disassembly) and hinder debugging because placing breakpoints is difficult. For example, even if the start of an instructions is known, breakpoint cannot be placed until the instruction have been decoded/decrypted
-* __Virtual Obfuscation (Runtime Code Generation)__: parts of the program are compiled to the bytecode that corresponds to the instruction set of an undocumented interpreter (usually one that the obfuscator wrote him or herself). The interpreter will be a part of the protected program such that during runtime, the interpreter will translate those bytecode into machine code that corresponds to the original architecture (e.g. x86). This method can also prevent the dumping of the complete deobfuscated opcodes from memory during runtime, which Self-Modifying Code is susceptible to.
+  * [Example Code](https://github.com/yellowbyte/analysis-of-anti-analysis/blob/master/research/hiding_call_to_ptrace/hiding_call_to_ptrace.md#self-modifying-code)
+* __Virtual Obfuscation (Runtime Code Generation)__: parts of the program are compiled to the bytecode that corresponds to the instruction set of an undocumented interpreter (usually one that the obfuscator wrote him or herself). The interpreter will be a part of the protected program such that during runtime, the interpreter will translate those bytecode into machine code that corresponds to the original architecture (e.g. x86). This method can also prevent the dumping of the complete deobfuscated opcodes from memory during runtime, which Self-Modifying Code is susceptible to
+  * [Unpacking FinSpy VM](http://www.msreverseengineering.com/blog/2018/1/23/a-walk-through-tutorial-with-code-on-statically-unpacking-the-finspy-vm-part-one-x86-deobfuscation)
+  * [x86 Virtualizer](http://jeremywildsmith.com/?blog%2Fx86devirt)
 
 ---
 #### *<p align='center'> Code Insertion </p>*
@@ -40,20 +43,23 @@
 * Transforms a sequence of instructions into another sequence that is more complicated but semantically the same
   * This task could be difficult since the obfuscated sequence can look semantically the same but actually does not preserve CPU state, which can cause later program behavior to be semantically non-equivalent. This can happen if the new sequence's side effects (e.g. modify/didn't modify the flags or modify/didn't modify the stack) doesn't match 1-to-1 to the original sequence's side effects in its entirety
   * Can be resolved by applying peephole optimization
-* __Irreducible Programs__: transforms a loop into more complicated construct on the source code level. Duplicate the loop and insert a conditional construct that could reach either loop. Obsfucate each loop accordingly. When compiled, compiler cannot optimize away the conditional construct away since it does not know that both path are functionally equivalent.
-* __Source-Level Opaque Predicate__: transforms a trivial opaque predicate into a non-trivial opaque predicate. A source-level's trivial opaque predicate in a conditional construct will be optimized away if compiler knows that it will always be evaluated to either True or False. For a non-trivial opaque predicate, even though the predicate will always evaluate to either True or False, the underlying code construct makes it hard to figure that out statically. As a result, compiler doesn't optimize away the conditional construct
+* __Irreducible Programs__: transforms a loop into a more complicated construct on the source code level. Duplicate the loop and insert a conditional construct that could reach either loop. Obsfucate each loop accordingly. When compiled, compiler cannot optimize away the conditional construct away since it does not know that both path are functionally equivalent.
+* __Opaque Predicate__: boolean conditional that always evaluate to the same value. Can be used for [disassembly desynchronization](https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Disassembly.md#-disassembly-desynchronization-) or [simply just complicate the analysis](https://github.com/obfuscator-llvm/obfuscator/wiki/Bogus-Control-Flow)
+* __Source-Level Opaque Predicate__: transforms a trivial opaque predicate into a non-trivial opaque predicate. A source-level's trivial opaque predicate will be optimized away if compiler knows that it will always be evaluated to either True or False. For a non-trivial opaque predicate, even though the predicate will always evaluate to the same value, the underlying code construct makes it hard to figure that out statically. As a result, compiler doesn't optimize it away
   * [Environment-Based Opaque Predicates](https://reverseengineering.stackexchange.com/questions/2340/how-to-design-opaque-predicates)
   * Uses global variables instead of constants in the predicates. Compiler won't be able to optimize the conditional construct since it can't assume the value of global variables
   * Introduces entropy into the predicate (e.g. using rand() function)
-* __Constant Unfolding__: replaces constant with unnecessary computations that will output the same constant
+* __Constant Unfolding__: replaces constant with unnecessary computations that will result in the same constant
   * This can be accomplished on the source-level if the variable is assigned as volatile in C. The volatile keyword tells the compiler to not optimize this variable so you can perform unnecessary computations with it without worrying that the compiler will remove or shorten them
 * __Arithmetic Substitution via Identities__: replaces a mathematical statement with one that is more complicated but semantically the same
+  * [OLLVM's Implementation](https://github.com/obfuscator-llvm/obfuscator/wiki/Instructions-Substitution)
 
 ---
 #### *<p align='center'> Destruction of Sequential and Temporal Locality </p>*
 ---
 * __Spaghetti Code__: code within a basic block will be right next to each other __(sequential locality)__ and basic blocks relating to each other will be placed in close proximity to maximize instruction cache locality __(temporal locality)__. To obstruct this property and make disassembly harder to understand, a basic block can be further divided and randomized using unconditional jumps
 * __Control-Flow Graph Flattening__: obfuscates control flow by replacing a group of control structures with a dispatcher. Each basic block updates the dispatcher's context so it knows which basic block to execute next
+  * [OLLVM's Implementation](https://github.com/obfuscator-llvm/obfuscator/wiki/Control-Flow-Flattening)
 
 ---
 #### *<p align='center'> Imported Function Obfuscation </p>*

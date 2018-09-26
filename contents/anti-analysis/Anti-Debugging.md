@@ -4,9 +4,9 @@
 #### *<p align='center'> Leveraging OS to Detect Debugger's Presence </p>*
 ---
 * __ptrace (Linux)__: ptrace system call allows a process (tracer) to observe and control execution of a second process (tracee), but only one tracer can control a tracee at a time. All debuggers and program tracers use ptrace call to setup debugging for a process. If the debugee's code itself contains a ptrace call with the request type PTRACE_TRACEME, PTRACE_TRACEME will set the parent process (most likely bash) as the tracer. This means that if a debugger is already attached to the debugee, the ptrace call within the debugee's code will fail
-  * This method can be bypassed by using LD_PRELOAD, which is an environment variable that is set to the path of a shared object. That shared object will be loaded first. As a result, if that shared object contains your own implementation of ptrace, then your own implementation of ptrace will be called instead when the call to ptrace is encountered
-    * [How To Deter People From Using LD_PRELOAD To Bypass Ptrace](https://seblau.github.io/posts/linux-anti-debugging)
-* Windows API provides several functions that can be used by a program to determine if it is being debugged
+  * This method can be bypassed by using LD_PRELOAD, which is an environment variable that is set to the path of a shared object. That shared object will be loaded before other libraries. As a result, if that shared object contains your own implementation of ptrace, then your own implementation of ptrace will be called instead
+  * [Hiding Call To Ptrace](https://github.com/yellowbyte/analysis-of-anti-analysis/blob/develop/research/hiding_call_to_ptrace/hiding_call_to_ptrace.md)
+* Windows provides several APIs that can be used by a program to determine if it is being debugged
   * __DebugActiveProcess (Self-Debugging)__: Windows' version of ptrace. Self-debugging can be achieved by spawning a new process and use kernel32!DebugActiveProcess to debug the parent process. Call to DebugActiveProcess will fail if a debugger is already attached to the parent process
   * __IsDebuggerPresent__: checks the PEB structure for the IsDebugged field. If the process is running under the context of a debugger, the IsDebugged field will be 1, otherwise 0
   * __CheckRemoteDebuggerPresent__: can use this to check if a remote or current process is being debugged. Also checks the IsDebugged field in the PEB structure to make the decision

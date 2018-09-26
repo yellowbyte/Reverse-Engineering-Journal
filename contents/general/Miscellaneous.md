@@ -5,7 +5,7 @@
 ---
 * A process is a container for execution. A thread is what the OS schedules to execute on a single core
 * A process consists of one or more threads
-* Multiple threads can run on a single core. And although only one thread is executing on a core at a time, since threads are multiplexed so quickly (exact mechanism is based on the particular OS scheduling algorithm), it seems to us as if multiple threads are running at the same time
+* Multiple threads can run on a single core. And although only one thread is executing on a core at a time, since threads are multiplexed so quickly (exact mechanism is based on the specific OS scheduling algorithm), it seems to us as if multiple threads are running at the same time
 * For a multi-core CPU, a multi-threaded process can have all its threads running on the same core or splitted between different cores. The decision for which core a thread will run on is made by the OS
 * Each thread will have its own registers set and stack
 <div align='center'>
@@ -55,7 +55,6 @@
 ---
 #### *<p align='center'> Hardware Breakpoint </p>*
 ---
-* Set at CPU level in special registers called debug registers
 * Debug registers (DR0 through DR7)
   * DR0-DR3: stores addresses of hardware breakpoints
   * DR4-DR5: reserved

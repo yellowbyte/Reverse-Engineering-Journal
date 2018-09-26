@@ -3,7 +3,8 @@
 ---
 #### *<p align='center'> Addresses Shown In IDA </p>*
 ---
-* When IDA loads a binary, it simulates a mapping of the file in memory. The addresses shown in IDA are the virtual memory addresses and not offsets of the binary file on disk
+* When IDA loads an executable binary, it simulates a mapping of the executable in memory. The addresses shown in IDA are the virtual memory addresses and not offsets of the binary file on disk
+* The addresses shown in a debugger will not match the addresses shown in IDA if ASLR is enabled
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/ida_va_instr.PNG">
 <p align='center'><sub><strong>IDA displaying 4 instructions along with their respective virtual addresses</strong></sub></p>
@@ -20,15 +21,15 @@
 ---
 #### *<p align='center'> Functions Window </p>*
 ---
-* Functions Window displays all the functions the binary uses: local functions, linked functions (e.g. [crt0](https://en.wikipedia.org/wiki/Crt0)), and dynamically-linked functions.
-  * dynamically-linked functions increase the disassembly's glance value and provide the reverser with more context to figure out what the surrounding code is doing since their original names can't be stripped away
-    * __Glance value__: being able to quickly look over the code and have a general idea of what it is doing
+* Functions Window displays all the functions the binary uses: local functions, statically-linked functions (e.g. [crt0](https://en.wikipedia.org/wiki/Crt0)), and dynamically-linked functions
+* dynamically-linked functions increase the disassembly's glance value and provide the reverser with more context to figure out what the surrounding code is doing since their original names can't be stripped away
+  * __Glance value__: being able to quickly look over the code and have a general idea of what it is doing
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/tools/IDA_Tips/default_functions_window.png">
 <p align='center'><sub><strong>Functions Window example</strong></sub></p>
 </div>
 
-* By default, Functions Windows will only show the "Function name" column but you can expand it to see the other columns
+* By default, Functions Windows will only show the "Function name" column but you can expand it to reveal the other columns
   * __Segment__: segment that contains the function
   * __Start__: offset of the function within the segment
   * __Length__: function length in bytes
