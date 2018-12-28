@@ -8,7 +8,13 @@
     * __Example__: jump table for switch statement, padding bytes between functions
 * __Recursive Descent__: disassembles program based on control flow
   * __Example Implementation__: for conditional branch, process false branch first and note to disassemble true branch later. For unconditional branch, add destination to the end of list of places to disassemble in future and then disassemble from that list. For call instruction, disassemble the bytes after the call first and then the called location. If there is conflict between the true and false branch when disassembling, trust the one disassembled first
-* [Binary Ninja disassembler uses both linear sweep and recursive descent to identify functions](https://binary.ninja/2017/11/06/architecture-agnostic-function-detection-in-binaries.html)
+* Overall, [disassembly is still an undecidable problem](https://indefinitestudies.org/2010/12/19/the-halting-problem-for-reverse-engineers/). This includes the followings:
+  * Function Identification
+    * [Binary Ninja disassembler uses linear sweep, recursive descent, and other analysis techniques to identify functions](https://binary.ninja/2017/11/06/architecture-agnostic-function-detection-in-binaries.html)
+  * Control Flow Graph Recovery 
+    * Primary difficulty is determining the targets of indirect jumps (e.g. `call eax`)
+      * [Binary Ninja uses value set analysis in an attempt to resolve indirect jump targets](https://binary.ninja/2017/11/06/architecture-agnostic-function-detection-in-binaries.html#jump-table-inference-with-generic-value-set-analysis)
+      * [Language-aware approach allows for accurate identification for a subset of indirect jumps](https://blog.trailofbits.com/2017/02/13/devirtualizing-c-with-binary-ninja/)
 
 ---
 #### *<p align='center'> Disassembly Desynchronization </p>*
