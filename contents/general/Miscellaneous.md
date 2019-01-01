@@ -8,6 +8,7 @@
 * Multiple threads can run on a single core. And although only one thread is executing on a core at a time, since threads are multiplexed so quickly (exact mechanism is based on the specific OS scheduling algorithm), it seems to us as if multiple threads are running at the same time
 * For a multi-core CPU, a multi-threaded process can have all its threads running on the same core or splitted between different cores. The decision for which core a thread will run on is made by the OS
 * Each thread will have its own registers set and stack
+* The heap is shared by all threads
 <div align='center'>
 <img src="https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/images/general/Miscellaneous/4_01_ThreadDiagram.png" width="469" height="270">
 <p align='center'><sub><strong>single threaded vs multi-threaded process</strong></sub></p>
