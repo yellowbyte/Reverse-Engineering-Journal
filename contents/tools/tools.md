@@ -36,6 +36,7 @@ __Be Cautious...__
 ---
 * [Free Reverse Engineering Tools by Wiremask](https://wiremask.eu/articles/free-reverse-engineering-tools/): list of relevant (still maintained) and free reverse engineering tools
 * [IDA Alternatives](https://reverseengineering.stackexchange.com/questions/1817/is-there-any-disassembler-to-rival-ida-pro): there is no disassembler that rivals IDA, but getting a IDA license does costs a fortune. Personally, for alternatives, I would recommand [Binary Ninja](https://binary.ninja/) since it only costs 150 dollars and has an interactive GUI interface like IDA or [Radare2](https://github.com/radare/radare2) if you don't mind working in the command-line and spending a little more time learning how to use the tool. Plus, [Radare2](https://github.com/radare/radare2) is free
+* Tips and Tricks: [IDA](https://twitter.com/idatips?lang=en), [Ghidra](https://twitter.com/GHIDRA_RE), [Binary Ninja](https://twitter.com/binaryninjatips), and [Radare2](https://twitter.com/r2tips?lang=en)
 
 #
 <strong><p align='center'><a href="/contents/general/general.md">.general</a> <- <a href="/README.md#-reverse-engineering-reference-manual-beta-">RERM</a> -> <a href="/contents/instruction-sets/instruction-sets.md">.instruction-sets</a></p></strong>
