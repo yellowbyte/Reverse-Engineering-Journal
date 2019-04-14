@@ -23,6 +23,7 @@ __Be Cautious...__
   * [Functions Window](IDA_Tips.md#-functions-window-)
   * [Graphs](IDA_Tips.md#-graphs-)
   * [Keeping Track of Manual Analysis](IDA_Tips.md#-keeping-track-of-manual-analysis-)
+  * [Structures](IDA_Tips.md#-structures-)
   * [Useful Shortcuts](IDA_Tips.md#-useful-shortcuts-)
 * [GDB Tips](GDB_Tips.md)
   * [Changing Default Settings](GDB_Tips.md#-changing-default-settings-)

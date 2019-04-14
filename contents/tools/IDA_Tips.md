@@ -114,6 +114,16 @@
 * __Additional Comment__: regular and repeatable comments will appear to the right of the instruction. You can also insert comments before (__Ins__) or after (__Shift+Ins__) the instruction
 
 ---
+#### *<p align='center'> Structures </p>*
+---
+* [Quick and easy way to define structures](https://imgur.com/bT8k1er)
+  1. Open "Local Types" window (View -> Open subviews -> Local types)
+  2. Right-click and select "Insert..."
+  3. A "Please enter text" window will pop up. In this window, simply define the structure as you would in C and press "OK"
+  4. The structure you just defined will show up as an item in the "Local Types" window. Double-click on it and a "Please confirm" window will pop up and click "Yes" to import it into IDA's database
+  5. You will be redirected to the "Structures" window with the structure you previously entered defined in it
+
+---
 #### *<p align='center'> Useful Shortcuts </p>*
 ---
 * __Ctrl+L__: jump to location by name
