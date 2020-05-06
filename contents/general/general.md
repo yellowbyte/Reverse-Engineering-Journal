@@ -63,6 +63,7 @@ __Semantic Insight vs Implementation Detail__
   * [POC||GTFO](https://www.alchemistowl.org/pocorgtfo/)
 * [Full-Stack Reverse Engineer](https://twitter.com/daeken/status/1025123319824244738?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet): [@daeken](https://twitter.com/daeken)'s steps to getting the base knowledge for reversing anything ([video presentation](https://www.youtube.com/watch?v=9vKG8-TnawY))
 * [Program Analysis Reading List](https://www.msreverseengineering.com/program-analysis-reading-list/) ([@RolfRolles](https://twitter.com/RolfRolles))
+* [Guy's 30 Reverse Engineering Tips & Tricks](https://blog.vastart.dev/2020/04/guys-30-reverse-engineering-tips-tricks.html)
 
 #
 <strong><p align='center'><a href="/contents/encodings/encodings.md">.encodings</a> <- <a href="/README.md#-reverse-engineering-reference-manual-beta-">RERM</a> -> <a href="/contents/tools/tools.md">.tools</a></p></strong>
